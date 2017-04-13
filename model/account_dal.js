@@ -4,27 +4,17 @@ var db  = require('./db_connection.js');
 /* DATABASE CONFIGURATION */
 var connection = mysql.createConnection(db.config);
 
-/*
- create or replace view company_view as
- select s.*, a.street, a.zip_code from company s
- join address a on a.address_id = s.address_id;
-
- */
-
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM company;';
+    var query = 'SELECT * FROM account';
 
     connection.query(query, function(err, result) {
         callback(err, result);
     });
 };
 
-exports.getById = function(company_id, callback) {
-    var query = 'SELECT c.*, a.street, a.zip_code FROM company c ' +
-        'LEFT JOIN company_address ca on ca.company_id = c.company_id ' +
-        'LEFT JOIN address a on a.address_id = ca.address_id ' +
-        'WHERE c.company_id = ?';
-    var queryData = [company_id];
+exports.getById = function(account_id, callback) {
+    var query = 'SELECT * FROM account WHERE account_id = ?';
+    var queryData = [account_id];
     console.log(query);
 
     connection.query(query, queryData, function(err, result) {
@@ -36,11 +26,11 @@ exports.getById = function(company_id, callback) {
 exports.insert = function(params, callback) {
 
     // FIRST INSERT THE COMPANY
-    var query = 'INSERT INTO company (company_name) VALUES (?)';
+    var query = 'INSERT INTO account (first_name) VALUES (?)';
 
-    var queryData = [params.company_name];
+    var queryData = [params.first_name];
 
-    connection.query(query, params.company_name, function(err, result) {
+    connection.query(query, params.first_name, function(err, result) {
 
         // THEN USE THE COMPANY_ID RETURNED AS insertId AND THE SELECTED ADDRESS_IDs INTO COMPANY_ADDRESS
         var company_id = result.insertId;
@@ -123,22 +113,22 @@ exports.update = function(params, callback) {
 };
 
 /*  Stored procedure used in this example
-     DROP PROCEDURE IF EXISTS company_getinfo;
+ DROP PROCEDURE IF EXISTS company_getinfo;
 
-     DELIMITER //
-     CREATE PROCEDURE company_getinfo (company_id int)
-     BEGIN
+ DELIMITER //
+ CREATE PROCEDURE company_getinfo (company_id int)
+ BEGIN
 
-     SELECT * FROM company WHERE company_id = _company_id;
+ SELECT * FROM company WHERE company_id = _company_id;
 
-     SELECT a.*, s.company_id FROM address a
-     LEFT JOIN company_address s on s.address_id = a.address_id AND company_id = _company_id;
+ SELECT a.*, s.company_id FROM address a
+ LEFT JOIN company_address s on s.address_id = a.address_id AND company_id = _company_id;
 
-     END //
-     DELIMITER ;
+ END //
+ DELIMITER ;
 
-     # Call the Stored Procedure
-     CALL company_getinfo (4);
+ # Call the Stored Procedure
+ CALL company_getinfo (4);
 
  */
 
