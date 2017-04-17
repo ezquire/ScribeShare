@@ -26,35 +26,39 @@ exports.getById = function(account_id, callback) {
 exports.insert = function(params, callback) {
 
     // FIRST INSERT THE COMPANY
-    var query = 'INSERT INTO account (first_name) VALUES (?)';
+    var query = 'INSERT INTO account (first_name, last_name, email) VALUES (?)';
 
-    var queryData = [params.first_name];
+    var queryData = [params.first_name, params.last_name, params.email];
 
-    connection.query(query, params.first_name, function(err, result) {
+    connection.query(query, [queryData], function(err, result) {
+        callback(err, result);
+    });
+
+    /*connection.query(query, queryData, function(err, result) {
 
         // THEN USE THE COMPANY_ID RETURNED AS insertId AND THE SELECTED ADDRESS_IDs INTO COMPANY_ADDRESS
-        var company_id = result.insertId;
+        var account_id = result.insertId;
 
         // NOTE THAT THERE IS ONLY ONE QUESTION MARK IN VALUES ?
-        var query = 'INSERT INTO company_address (company_id, address_id) VALUES ?';
+        var query = 'INSERT INTO account (first_name, last_name, email) VALUES ?';
 
         // TO BULK INSERT RECORDS WE CREATE A MULTIDIMENSIONAL ARRAY OF THE VALUES
         var companyAddressData = [];
-        for(var i=0; i < params.address_id.length; i++) {
-            companyAddressData.push([company_id, params.address_id[i]]);
+        for(var i=0; i < params.account_id.length; i++) {
+            companyAddressData.push([account_id, params.account_id[i]]);
         }
 
         // NOTE THE EXTRA [] AROUND companyAddressData
         connection.query(query, [companyAddressData], function(err, result){
             callback(err, result);
         });
-    });
+    });*/
 
 };
 
-exports.delete = function(company_id, callback) {
-    var query = 'DELETE FROM company WHERE company_id = ?';
-    var queryData = [company_id];
+exports.delete = function(account_id, callback) {
+    var query = 'DELETE FROM account WHERE account_id = ?';
+    var queryData = [account_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

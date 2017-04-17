@@ -48,7 +48,7 @@ router.get('/add', function(req, res){
     });
 });
 
-// View the company for the given id
+// Insert a new account
 router.get('/insert', function(req, res){
     // simple validation
     if(req.query.first_name == null) {
@@ -109,17 +109,17 @@ router.get('/update', function(req, res) {
 
 // Delete a company for the given company_id
 router.get('/delete', function(req, res){
-    if(req.query.company_id == null) {
-        res.send('company_id is null');
+    if(req.query.account_id == null) {
+        res.send('account_id is null');
     }
     else {
-         company_dal.delete(req.query.company_id, function(err, result){
+         account_dal.delete(req.query.account_id, function(err, result){
              if(err) {
                  res.send(err);
              }
              else {
                  //poor practice, but we will handle it differently once we start using Ajax
-                 res.redirect(302, '/company/all');
+                 res.redirect(302, '/account/all');
              }
          });
     }
