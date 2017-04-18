@@ -25,7 +25,7 @@ exports.getById = function(account_id, callback) {
 
 exports.insert = function(params, callback) {
 
-    // FIRST INSERT THE COMPANY
+    // FIRST INSERT THE Account
     var query = 'INSERT INTO account (first_name, last_name, email) VALUES (?)';
 
     var queryData = [params.first_name, params.last_name, params.email];
@@ -67,7 +67,7 @@ exports.delete = function(account_id, callback) {
 };
 
 //declare the function so it can be used locally
-var companyAddressInsert = function(company_id, addressIdArray, callback){
+/*var companyAddressInsert = function(company_id, addressIdArray, callback){
     // NOTE THAT THERE IS ONLY ONE QUESTION MARK IN VALUES ?
     var query = 'INSERT INTO company_address (company_id, address_id) VALUES ?';
 
@@ -93,15 +93,16 @@ var companyAddressDeleteAll = function(company_id, callback){
     });
 };
 //export the same function so it can be used by external callers
-module.exports.companyAddressDeleteAll = companyAddressDeleteAll;
+module.exports.companyAddressDeleteAll = companyAddressDeleteAll;*/
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE company SET company_name = ? WHERE company_id = ?';
-    var queryData = [params.company_name, params.company_id];
+    var query = 'UPDATE account SET first_name = ?, last_name = ?, email = ? WHERE account_id = ?';
+    var queryData = [params.first_name, params.last_name, params.email];
 
-    connection.query(query, queryData, function(err, result) {
-        //delete company_address entries for this company
-        companyAddressDeleteAll(params.company_id, function(err, result){
+    connection.query(query, [queryData], function(err, result) {
+        callback(err, result);
+    });
+       /* companyAddressDeleteAll(params.company_id, function(err, result){
 
             if(params.address_id != null) {
                 //insert company_address ids
@@ -113,7 +114,7 @@ exports.update = function(params, callback) {
             }
         });
 
-    });
+    });*/
 };
 
 /*  Stored procedure used in this example
@@ -136,9 +137,9 @@ exports.update = function(params, callback) {
 
  */
 
-exports.edit = function(company_id, callback) {
-    var query = 'CALL company_getinfo(?)';
-    var queryData = [company_id];
+exports.edit = function(account_id, callback) {
+    var query = 'SELECT * FROM account WHERE account_id = ?';
+    var queryData = [account_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

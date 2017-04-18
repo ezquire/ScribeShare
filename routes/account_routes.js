@@ -51,13 +51,13 @@ router.get('/add', function(req, res){
 // Insert a new account
 router.get('/insert', function(req, res){
     // simple validation
-    if(req.query.first_name == null) {
+    if(req.query.first_name == "") {
         res.send('Please provide a first name.');
     }
-    else if(req.query.last_name == null) {
+    else if(req.query.last_name == "") {
         res.send('Please provide a last name.');
     }
-    else if(req.query.email == null) {
+    else if(req.query.email == "") {
         res.send('Please provide an email.');
     }
     else {
@@ -76,12 +76,12 @@ router.get('/insert', function(req, res){
 });
 
 router.get('/edit', function(req, res){
-    if(req.query.company_id == null) {
-        res.send('A company id is required');
+    if(req.query.account_id == null) {
+        res.send('An account id is required');
     }
     else {
-        company_dal.edit(req.query.company_id, function(err, result){
-            res.render('company/companyUpdate', {company: result[0][0], address: result[1]});
+        account_dal.edit(req.query.account_id, function(err, result){
+            res.render('account/accountUpdate', {account: result[0]});
         });
     }
 
@@ -102,8 +102,8 @@ router.get('/edit2', function(req, res){
 });
 
 router.get('/update', function(req, res) {
-    company_dal.update(req.query, function(err, result){
-       res.redirect(302, '/company/all');
+    account_dal.update(req.query, function(err, result){
+       res.redirect(302, '/account/all');
     });
 });
 
