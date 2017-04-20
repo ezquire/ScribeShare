@@ -1,0 +1,25 @@
+<%- include("../includes/header.ejs", {title:"Select A User"}); %>
+    <h1>User Select</h1>
+<form action="/resume/add" method="get">
+    <input type="hidden" id="account_id" name="account_id" value="<%= account.account_id %>">
+
+    User <br />
+    <select id="account_id" name="account_id">
+        <% for(var i=0; account.length > i; i++ ) {
+            var selected = "";
+
+            if(account[i].account_id != null) {
+                selected = "selected";
+            }
+        %>
+        <option value="<%= account[i].account_id %>" <%= selected %> ><%= account[i].first_name%> <%= account[i].last_name %></option>
+        <% } %>
+    </select>
+
+    <br />
+    <br />
+
+    <input type="submit" />
+
+</form>
+<%- include("../includes/footer.ejs"); %>

@@ -5,16 +5,16 @@ var db  = require('./db_connection.js');
 var connection = mysql.createConnection(db.config);
 
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM account';
+    var query = 'SELECT * FROM skill;';
 
     connection.query(query, function(err, result) {
         callback(err, result);
     });
 };
 
-exports.getById = function(account_id, callback) {
-    var query = 'SELECT * FROM account WHERE account_id = ?';
-    var queryData = [account_id];
+exports.getById = function(skill_id, callback) {
+    var query = 'SELECT * FROM skill WHERE skill_id = ?';
+    var queryData = [skill_id];
     console.log(query);
 
     connection.query(query, queryData, function(err, result) {
@@ -25,19 +25,19 @@ exports.getById = function(account_id, callback) {
 
 exports.insert = function(params, callback) {
 
-    // FIRST INSERT THE Account
-    var query = 'INSERT INTO account (first_name, last_name, email) VALUES (?)';
+    // insert the skill
+    var query = 'INSERT INTO skill (skill_name, description) VALUES (?)';
 
-    var queryData = [params.first_name, params.last_name, params.email];
+    var queryData = [params.skill_name, params.description];
 
     connection.query(query, [queryData], function(err, result) {
         callback(err, result);
     });
 };
 
-exports.delete = function(account_id, callback) {
-    var query = 'DELETE FROM account WHERE account_id = ?';
-    var queryData = [account_id];
+exports.delete = function(skill_id, callback) {
+    var query = 'DELETE FROM skill WHERE skill_id = ?';
+    var queryData = [skill_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -46,8 +46,8 @@ exports.delete = function(account_id, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE account SET first_name = ?, last_name = ?, email = ? WHERE account_id = ?';
-    var queryData = [params.first_name, params.last_name, params.email, params.account_id];
+    var query = 'UPDATE skill SET skill_name = ?, description = ? WHERE skill_id = ?';
+    var queryData = [params.skill_name, params.description, params.skill_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -55,9 +55,9 @@ exports.update = function(params, callback) {
 
 };
 
-exports.edit = function(account_id, callback) {
-    var query = 'SELECT * FROM account WHERE account_id = ?';
-    var queryData = [account_id];
+exports.edit = function(skill_id, callback) {
+    var query = 'SELECT * FROM skill WHERE skill_id = ?';
+    var queryData = [skill_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
