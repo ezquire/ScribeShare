@@ -13,10 +13,10 @@ exports.getAll = function(callback) {
     });
 };
 
-exports.getUser = function(callback) {
-    var query = 'SELECT a.first_name, a.last_name, r.resume_name FROM account a JOIN resume r on r.account_id = a.account_id ' +
-        'ORDER BY a.first_name';
-    connection.query(query, function(err, result) {
+exports.getUser = function(account_id, callback) {
+    var query = 'CALL user_getinfo(?)';
+    var queryData = [account_id]
+    connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
 };

@@ -18,10 +18,8 @@ router.get('/all', function(req, res) {
 });
 
 
-
-// Return the add a new address form
+// Return the select user form
 router.get('/add/selectuser', function(req, res){
-    // passing all the query parameters (req.query) to the insert function instead of each individually
     account_dal.getAll(function(err,result) {
         if (err) {
             res.send(err);
@@ -32,17 +30,19 @@ router.get('/add/selectuser', function(req, res){
     });
 });
 
+
 router.get('/add', function(req, res){
-    // passing all the query parameters (req.query) to the insert function instead of each individually
-    resume_dal.getUser(function(err,result) {
+    resume_dal.getUser(req.query.account_id, function(err,result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('resume/resumeAdd', {'account': result});
+            res.render('resume/resumeAdd', {school: result[0], company: result[1], skill: result[2]});
         }
     });
 });
+
+
 
 // Insert a new address
 router.get('/insert', function(req, res){
@@ -76,22 +76,6 @@ router.get('/update', function(req, res) {
 });
 
 
-// Delete an address for the given address_id
-router.get('/delete', function(req, res){
-    if(req.query.address_id == null) {
-        res.send('address_id is null');
-    }
-    else {
-         address_dal.delete(req.query.address_id, function(err, result){
-             if(err) {
-                 res.send(err);
-             }
-             else {
-                 //poor practice, but we will handle it differently once we start using Ajax
-                 res.redirect(302, '/address/all');
-             }
-         });
-    }
-});
+
 
 module.exports = router;
