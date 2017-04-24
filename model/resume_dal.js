@@ -31,7 +31,7 @@ exports.insert = function(params, callback) {
     connection.query(query, queryData, function(err, result) {
 
         // THEN USE THE COMPANY_ID RETURNED AS insertId AND THE SELECTED ADDRESS_IDs INTO COMPANY_ADDRESS
-        var company_id = result.insertId;
+        var resume_id = result.insertId;
 
         // NOTE THAT THERE IS ONLY ONE QUESTION MARK IN VALUES ?
         var query = 'INSERT INTO resume_school (company_id, address_id) VALUES ?';
