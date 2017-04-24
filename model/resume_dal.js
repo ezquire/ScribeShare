@@ -6,7 +6,7 @@ var connection = mysql.createConnection(db.config);
 
 
 exports.getAll = function(callback) {
-    var query = 'SELECT a.first_name, a.last_name, r.resume_name FROM account a JOIN resume r on r.account_id = a.account_id ' +
+    var query = 'SELECT a.first_name, a.last_name, r.resume_name FROM about a JOIN resume r on r.account_id = a.account_id ' +
                 'ORDER BY a.first_name';
     connection.query(query, function(err, result) {
         callback(err, result);

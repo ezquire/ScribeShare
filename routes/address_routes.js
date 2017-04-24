@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var company_dal = require('../model/company_dal');
 var address_dal = require('../model/address_dal');
-var account_dal = require('../model/account_dal');
 
 
 // View All addresses
