@@ -1,0 +1,15 @@
+<%- include("../includes/header.ejs", {title:"Company - View All"}); %>
+
+<h1>Artists</h1>
+        <br />
+
+        <table border="1">
+            <tr><th>Name</th><th>Email</th></tr>
+            <% for(var i=0; result.length > i; i++ ) { %>
+            <tr>
+                <td><%= result[i].artist_name %></td>
+                <td><%= result[i].email %></td>
+            </tr>
+            <% } %>
+        </table>
+<%- include("../includes/footer.ejs"); %>

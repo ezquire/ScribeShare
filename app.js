@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var about = require('./routes/about');
+var artist = require('./routes/artist_routes');
 var company = require('./routes/company_routes');
 var address = require('./routes/address_routes');
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/about', about);
+app.use('/artist', artist);
 app.use('/company', company);
 app.use('/address', address);
 

@@ -4,40 +4,60 @@ var db  = require('./db_connection.js');
 /* DATABASE CONFIGURATION */
 var connection = mysql.createConnection(db.config);
 
+/*
+ create or replace view company_view as
+ select s.*, a.street, a.zip_code from company s
+ join address a on a.address_id = s.address_id;
+
+ */
 
 exports.getAll = function(callback) {
-    var query = 'SELECT a.first_name, a.last_name, r.resume_name FROM about a JOIN resume r on r.account_id = a.account_id ' +
-                'ORDER BY a.first_name';
+    var query = 'SELECT * FROM artist';
+
     connection.query(query, function(err, result) {
         callback(err, result);
     });
 };
 
-exports.getUser = function(account_id, callback) {
-    var query = 'CALL user_getinfo(?)';
-    var queryData = [account_id]
+exports.getById = function(company_id, callback) {
+    var query = 'SELECT c.*, a.street, a.zip_code FROM company c ' +
+        'LEFT JOIN company_address ca on ca.company_id = c.company_id ' +
+        'LEFT JOIN address a on a.address_id = ca.address_id ' +
+        'WHERE c.company_id = ?';
+    var queryData = [company_id];
+    console.log(query);
+
     connection.query(query, queryData, function(err, result) {
+
         callback(err, result);
     });
 };
 
-
 exports.insert = function(params, callback) {
 
     // FIRST INSERT THE COMPANY
-    var query = 'INSERT INTO resume (resume_name) VALUES (?)';
-    var queryData = [params.resume_name];
+    var query = 'INSERT INTO company (company_name) VALUES (?)';
 
-    connection.query(query, queryData, function(err, result) {
+    var queryData = [params.company_name];
+
+    connection.query(query, params.company_name, function(err, result) {
 
         // THEN USE THE COMPANY_ID RETURNED AS insertId AND THE SELECTED ADDRESS_IDs INTO COMPANY_ADDRESS
-        var resume_id = result.insertId;
+        var company_id = result.insertId;
 
         // NOTE THAT THERE IS ONLY ONE QUESTION MARK IN VALUES ?
-        var query = 'INSERT INTO resume_school (company_id, address_id) VALUES ?';
+        var query = 'INSERT INTO company_address (company_id, address_id) VALUES ?';
 
         // TO BULK INSERT RECORDS WE CREATE A MULTIDIMENSIONAL ARRAY OF THE VALUES
+        var companyAddressData = [];
+        for(var i=0; i < params.address_id.length; i++) {
+            companyAddressData.push([company_id, params.address_id[i]]);
+        }
 
+        // NOTE THE EXTRA [] AROUND companyAddressData
+        connection.query(query, [companyAddressData], function(err, result){
+            callback(err, result);
+        });
     });
 
 };
