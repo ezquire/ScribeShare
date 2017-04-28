@@ -1,0 +1,16 @@
+<%- include("../includes/header.ejs", {title:"Artist - " + result[0].artist_name}); %>
+    <h1>Artist</h1>
+    <ul>
+        <li>Name: <%= result[0].artist_name %></li>
+        <li>Email:
+            <ul>
+                <% for(var i=0; result.length > i; i++ ) { %>
+                    <li><%= result[i].email %></li>
+                <% } %>
+            </ul>
+        </li>
+    </ul>
+
+<a href="/artist/all"><< BACK</a>
+
+<%- include("../includes/footer.ejs"); %>

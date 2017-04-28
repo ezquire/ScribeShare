@@ -1,0 +1,17 @@
+<%- include("../includes/header.ejs", {title:"Bookings - View All"}); %>
+
+<h1>All Bookings</h1>
+<a href="/booking/add">Add New Booking</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Artist</th><th>Cost</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/artist/?artist_id=<%= result[i].artist_id %>"><%= result[i].artist_name %></a></td>
+        <td><%= result[i].cost%></td>
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>

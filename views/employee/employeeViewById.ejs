@@ -1,0 +1,19 @@
+<%- include("../includes/header.ejs", {title:"Employee - " + result[0].fname + result[0].lname}); %>
+    <h1>Employee</h1>
+    <ul>
+        <li>Name: <%= result[0].fname %> <%= result[0].lname %></li>
+        <li>Phone Number:
+            <ul>
+                <li><%= result[0].phone %></li>
+            </ul>
+        </li>
+        <li>Working on:
+            <ul>
+                <li>Stage <%= result[0].stage_id %></li>
+            </ul>
+        </li>
+    </ul>
+
+<a href="/employee/all"><< BACK</a>
+
+<%- include("../includes/footer.ejs"); %>

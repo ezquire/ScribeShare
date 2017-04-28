@@ -1,15 +1,24 @@
-<%- include("../includes/header.ejs", {title:"Company - View All"}); %>
+<%- include("../includes/header.ejs", {title:"Artists - View All"}); %>
 
-<h1>Artists</h1>
-        <br />
+<h1>All Artists</h1>
+<a href="/artist/add">Add New Artist</a> <br />
 
-        <table border="1">
-            <tr><th>Name</th><th>Email</th></tr>
-            <% for(var i=0; result.length > i; i++ ) { %>
-            <tr>
-                <td><%= result[i].artist_name %></td>
-                <td><%= result[i].email %></td>
-            </tr>
-            <% } %>
-        </table>
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Actions</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/artist/?artist_id=<%= result[i].artist_id %>"><%= result[i].artist_name %></a></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/artist/edit/?artist_id=<%= result[i].artist_id %>'">Edit</button>
+            <form action="/artist/delete/" style="display:inline;">
+                <input type="hidden" name="artist_id" id="artist_id" value="<%= result[i].artist_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+
+        </td>
+    </tr>
+    <% } %>
+</table>
 <%- include("../includes/footer.ejs"); %>

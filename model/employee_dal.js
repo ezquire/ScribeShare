@@ -7,9 +7,9 @@ var connection = mysql.createConnection(db.config);
 exports.insert = function(params, callback) {
 
     // insert the address
-    var query = 'INSERT INTO artist (artist_name, email) VALUES (?)';
+    var query = 'INSERT INTO employee (employee_name, email) VALUES (?)';
 
-    var queryData = [params.artist_name, params.email];
+    var queryData = [params.employee_name, params.email];
 
     connection.query(query, [queryData], function(err, result) {
         callback(err, result);
@@ -18,27 +18,25 @@ exports.insert = function(params, callback) {
 
 
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM artist';
+    var query = 'SELECT * FROM employee';
 
     connection.query(query, function(err, result) {
         callback(err, result);
     });
 };
 
-exports.getById = function(artist_id, callback) {
-    var query = 'SELECT * FROM artist WHERE artist_id = ?';
-    var queryData = [artist_id];
+exports.getById = function(employee_id, callback) {
+    var query = 'SELECT * FROM employee WHERE employee_id = ?';
+    var queryData = [employee_id];
     console.log(query);
-
     connection.query(query, queryData, function(err, result) {
-
         callback(err, result);
     });
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE artist SET artist_name = ?, email = ? WHERE artist_id = ?';
-    var queryData = [params.artist_name, params.email, params.artist_id];
+    var query = 'UPDATE employee SET fname = ?, lname = ?, phone = ?, WHERE employee_id = ?';
+    var queryData = [params.fname, params.lname, params.phone, params.stage_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -46,9 +44,9 @@ exports.update = function(params, callback) {
 
 };
 
-exports.delete = function(artist_id, callback) {
-    var query = 'DELETE FROM artist WHERE artist_id = ?';
-    var queryData = [artist_id];
+exports.delete = function(employee_id, callback) {
+    var query = 'DELETE FROM employee WHERE employee_id = ?';
+    var queryData = [employee_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -57,9 +55,9 @@ exports.delete = function(artist_id, callback) {
 };
 
 
-exports.edit = function(artist_id, callback) {
-    var query = 'SELECT * FROM artist WHERE artist_id = ?';
-    var queryData = [artist_id];
+exports.edit = function(employee_id, callback) {
+    var query = 'SELECT * FROM employee WHERE employee_id = ?';
+    var queryData = [employee_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

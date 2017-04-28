@@ -1,23 +1,22 @@
 var express = require('express');
 var router = express.Router();
-var company_dal = require('../model/company_dal');
-var address_dal = require('../model/address_dal');
 var artist_dal = require('../model/artist_dal');
+var booking_dal = require('../model/booking_dal');
 
-// View All artist
+// View All artists
 router.get('/all', function(req, res) {
-    artist_dal.getAll(function(err, result){
+   booking_dal.getAll(function(err, result){
         if(err) {
             res.send(err);
         }
         else {
-            res.render('artist/artistViewAll', { 'result':result });
+            res.render('booking/bookingViewAll', { 'result': result });
         }
     });
 
 });
 
-// View the company for the given id
+// View the artist for the given id
 router.get('/', function(req, res){
     if(req.query.artist_id == null) {
         res.send('artist_id is null');
@@ -34,20 +33,20 @@ router.get('/', function(req, res){
     }
 });
 
-// Return the add a a new artist form
+// Return the add a new booking form
 router.get('/add', function(req, res){
     // passing all the query parameters (req.query) to the insert function instead of each individually
-    artist_dal.getAll(function(err,result) {
+    booking_dal.getBookingInfo(function(err,result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('artist/artistAdd', {'artist': result});
+            res.render('booking/bookingAdd', {stage: result[0], employee: result[1]});
         }
     });
 });
 
-// Insert a new artist
+// Insert a new booking
 router.get('/insert', function(req, res){
     // simple validation
     if(req.query.artist_name == "") {
@@ -56,17 +55,16 @@ router.get('/insert', function(req, res){
     else if(req.query.email == "") {
         res.send('Please provide an email.');
     }
+    else if(req.query.cost == "") {
+        res.send('Please provide a price for the booking.');
+    }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
-        artist_dal.insert(req.query, function(err,result) {
-            if (err) {
-                console.log(err)
-                res.send(err);
-            }
-            else {
-                //poor practice for redirecting the user to a different page, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/artist/all');
-            }
+        booking_dal.saveArtist(req.query, function(err,result) {
+            var artist_id = result.insertId;
+            booking_dal.saveBooking(artist_id, req.query.stage_id, req.query.employee_id, req.query.cost, function(err,result) {
+                res.redirect(302, '/booking/all');
+            });
         });
     }
 });

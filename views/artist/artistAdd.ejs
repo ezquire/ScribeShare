@@ -1,0 +1,12 @@
+<%- include("../includes/header.ejs", {title:"Add New Artist"}); %>
+    <h1>Add New Artist</h1>
+    <form action="/artist/insert" method="get">
+        Name: <input id="artist_name" name="artist_name" type="text" />
+        <br />
+        Email:  <input id="email" name="email" type="text" />
+        <br />
+        <br />
+        <input type="submit" />
+
+    </form>
+<%- include("../includes/footer.ejs"); %>
