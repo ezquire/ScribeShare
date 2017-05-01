@@ -4,12 +4,13 @@ var db  = require('./db_connection.js');
 /* DATABASE CONFIGURATION */
 var connection = mysql.createConnection(db.config);
 
+
 exports.insert = function(params, callback) {
 
     // insert the address
-    var query = 'INSERT INTO employee (employee_name, email) VALUES (?)';
+    var query = 'INSERT INTO employee (fname, lname, phone, stage_id) VALUES (?)';
 
-    var queryData = [params.employee_name, params.email];
+    var queryData = [params.fname, params.lname, params.phone, params.stage_id];
 
     connection.query(query, [queryData], function(err, result) {
         callback(err, result);
@@ -35,8 +36,8 @@ exports.getById = function(employee_id, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE employee SET fname = ?, lname = ?, phone = ?, WHERE employee_id = ?';
-    var queryData = [params.fname, params.lname, params.phone, params.stage_id];
+    var query = 'UPDATE employee SET fname = ?, lname = ?, phone = ?, stage_id = ? WHERE employee_id = ?';
+    var queryData = [params.fname, params.lname, params.phone, params.stage_id, params.employee_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -56,10 +57,10 @@ exports.delete = function(employee_id, callback) {
 
 
 exports.edit = function(employee_id, callback) {
-    var query = 'SELECT * FROM employee WHERE employee_id = ?';
+    var query = 'CALL employee_stage(?)';
     var queryData = [employee_id];
 
     connection.query(query, queryData, function(err, result) {
-        callback(err, result);
+            callback(err, result);
     });
 };

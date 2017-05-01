@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var employee_dal = require('../model/employee_dal');
+var stage_dal = require('../model/stage_dal');
 
 // View All employee
 router.get('/all', function(req, res) {
@@ -35,12 +36,12 @@ router.get('/', function(req, res){
 // Return the add a a new employee form
 router.get('/add', function(req, res){
     // passing all the query parameters (req.query) to the insert function instead of each individually
-    employee_dal.getAll(function(err,result) {
+    stage_dal.getAll(function(err,result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('employee/employeeAdd', {'employee': result});
+            res.render('employee/employeeAdd', {stage: result});
         }
     });
 });
@@ -48,11 +49,17 @@ router.get('/add', function(req, res){
 // Insert a new employee
 router.get('/insert', function(req, res){
     // simple validation
-    if(req.query.employee_name == "") {
-        res.send('Please provide an employee name.');
+    if(req.query.fname == "") {
+        res.send('Please provide an first name.');
     }
-    else if(req.query.email == "") {
+    else if(req.query.lname == "") {
         res.send('Please provide an email.');
+    }
+    else if(req.query.phone == "") {
+        res.send('Please provide a phone number.');
+    }
+    else if(req.query.stage_id == null) {
+        res.send('Please select a stage.');
     }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
@@ -75,7 +82,7 @@ router.get('/edit', function(req, res){
     }
     else {
         employee_dal.edit(req.query.employee_id, function(err, result){
-            res.render('employee/employeeUpdate', {employee: result[0]});
+            res.render('employee/employeeUpdate', {employee: result[0][0], stage: result[1]});
         });
     }
 });

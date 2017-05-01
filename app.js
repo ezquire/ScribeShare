@@ -10,7 +10,8 @@ var about = require('./routes/about');
 var artist = require('./routes/artist_routes');
 var booking = require('./routes/booking_routes');
 var employee = require('./routes/employee_routes');
-var company = require('./routes/company_routes');
+var stage = require('./routes/stage_routes');
+var materials = require('./routes/materials_routes');
 
 
 
@@ -34,7 +35,8 @@ app.use('/about', about);
 app.use('/artist', artist);
 app.use('/booking', booking);
 app.use('/employee', employee);
-app.use('/company', company);
+app.use('/stage', stage);
+app.use('/materials', materials);
 
 
 // catch 404 and forward to error handler

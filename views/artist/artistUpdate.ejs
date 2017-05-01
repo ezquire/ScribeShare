@@ -1,6 +1,8 @@
 <%- include("../includes/header.ejs", {title: "Update " + artist.artist_name}); %>
+<div class="page-header">
+    <h1>Update <%= artist.artist_name %></h1>
+</div>
 
-<h1>Update <%= artist.artist_name %></h1>
 <form action="/artist/update" method="get">
     <input type="hidden" id="artist_id" name="artist_id" value="<%= artist.artist_id %>">
     Name: <input id="artist_name" name="artist_name" type="text" value="<%= artist.artist_name%>"/>

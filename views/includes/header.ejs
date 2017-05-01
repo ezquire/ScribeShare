@@ -3,7 +3,7 @@
 <head>
     <title><%= title %></title>
     <br/>
-    <button onclick="event.preventDefault();window.location.href='/'">HOME</button>
+
 
     <!-- jQuery JavaScript Library; required by Bootstrap JS Library -->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -18,3 +18,19 @@
 
 </head>
 <body style="margin-left:20px;">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Concert Booking</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/booking/all">Bookings</a></li>
+                <li><a href="/artist/all">Artists</a></li>
+                <li><a href="/employee/all">Employees</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

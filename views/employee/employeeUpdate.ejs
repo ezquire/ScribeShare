@@ -1,14 +1,24 @@
-<%- include("../includes/header.ejs", {title: "Update " + artist.artist_name}); %>
+<%- include("../includes/header.ejs", {title: "Update " + employee.fname +  employee.lname}); %>
+<div class="page-header">
+    <h1>Update <%= employee.fname %>  <%= employee.lname %></h1>
+</div>
 
-<h1>Update <%= artist.artist_name %></h1>
-<form action="/artist/update" method="get">
-    <input type="hidden" id="artist_id" name="artist_id" value="<%= artist.artist_id %>">
-    Name: <input id="artist_name" name="artist_name" type="text" value="<%= artist.artist_name%>"/>
+<form action="/employee/update" method="get">
+    <input type="hidden" id="employee_id" name="employee_id" value="<%= employee.employee_id %>">
+    First Name: <input id="fname" name="fname" type="text" value="<%= employee.fname%>"/>
     <br />
-    Email: <input id="email" name="email" type="text" value="<%= artist.email %>"/>
-    <br />
-    <br />
+   Last Name: <input id="lname" name="lname" type="text" value="<%= employee.lname %>"/>
 
+    <br />
+    Phone Number: <input id="phone" name="phone" type="text" value="<%= employee.phone %>"/>
+    <br />
+    Stage Number:
+    <select id="stage_id" name="stage_id">
+        <% for(var i=0; stage.length > i; i++ ) { %>
+        <option value="<%= stage[i].stage_id %>">Stage <%= stage[i].stage_id %></option>
+        <% } %>
+    </select>
+    <br />
     <input type="submit" />
 
 </form>

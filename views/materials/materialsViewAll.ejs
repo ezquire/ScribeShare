@@ -1,0 +1,24 @@
+<%- include("../includes/header.ejs", {title:"View Stage Information"}); %>
+<div class="page-header">
+    <h1>Stage Materials</h1>
+</div>
+
+<br />
+
+<table class="table table-striped">
+    <thead>
+    <tr><th>Material ID</th><th>Type</th><th>Quantity</th><th>Stage Number</th></tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><%= result[i].material_id %></td>
+        <td><%= result[i].material_type%></td>
+        <td><%= result[i].quantity%></td>
+        <td><%= result[i].stage_id%></td>
+    </tr>
+    <% } %>
+    </tbody>
+
+</table>
+<%- include("../includes/footer.ejs"); %>

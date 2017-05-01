@@ -1,5 +1,9 @@
 <%- include("../includes/header.ejs", {title:"Employee - " + result[0].fname + result[0].lname}); %>
-    <h1>Employee</h1>
+
+   <div class="page-header">
+       <h1>Employee</h1>
+   </div>
+
     <ul>
         <li>Name: <%= result[0].fname %> <%= result[0].lname %></li>
         <li>Phone Number:
