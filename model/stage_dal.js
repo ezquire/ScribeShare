@@ -13,7 +13,7 @@ exports.getAll = function(callback) {
     });
 };
 
-exports.getStagesOverBudget = function(value, callback) {
+exports.getStageCosts = function(value, callback) {
     var query = 'SELECT s.stage_id, IFNULL(SUM(b.cost), NULL) as cost FROM booking b ' +
         'LEFT JOIN stage s ON s.stage_id = b.stage_id GROUP BY s.stage_id HAVING SUM(b.cost) > ?';
     var queryData = [value];

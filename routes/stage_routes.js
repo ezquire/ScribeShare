@@ -19,12 +19,12 @@ router.get('/all', function(req, res) {
 // Return the add a a new stage form
 router.get('/budget', function(req, res){
     // passing all the query parameters (req.query) to the insert function instead of each individually
-    stage_dal.getStagesOverBudget(req.query.value, function(err,result) {
+    stage_dal.getStageCosts(req.query.value, function(err,result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('stage/stagesOverBudget', {'result': result});
+            res.render('stage/stagesCost', {'result': result});
         }
     });
 });
