@@ -16,6 +16,18 @@ router.get('/all', function(req, res) {
 
 });
 
+router.get('/booked', function(req, res) {
+    employee_dal.getEmployeesBooked(function(err, result){
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.render('employee/employeeBookedArtist', { 'result':result });
+        }
+    });
+
+});
+
 // View the employee for the given id
 router.get('/', function(req, res){
     if(req.query.employee_id == null) {

@@ -3,7 +3,7 @@
     <h1>Stage Information</h1>
 </div>
 
-
+    <a href="/stage/add"> Add a New Stage </a>
 
 <br />
 
@@ -17,6 +17,10 @@
         <td><%= result[i].stage_id %></td>
         <td><%= result[i].open_time%></td>
         <td><%= result[i].close_time%></td>
+       <td><form action="/stage/delete/" style="display:inline;">
+        <input type="hidden" name="stage_id" id="stage_id" value="<%= result[i].stage_id %>" />
+        <input type="submit" value="Delete"/>
+           </form></td>
     </tr>
     <% } %>
     </tbody>

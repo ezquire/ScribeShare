@@ -1,0 +1,24 @@
+<%- include("../includes/header.ejs", {title:"Add New Artist"}); %>
+    <div class="page-header">
+        <h1>Add New Stage</h1>
+    </div>
+
+    <form action="/stage/insert" method="get">
+        Open Time: <input id="open_time" name="open_time" type="text" />
+        <br />
+        Close Time:  <input id="close_time" name="close_time" type="text" />
+        <br />
+        <br/>
+        Add one necessary material for the stage (you can add more later from the stage materials page).
+        <br/>
+        <br/>
+        Material ID:  <input id="material_id" name="material_id" type="text" />
+        <br />
+        Material Type:  <input id="material_type" name="material_type" type="text" />
+        <br />
+        Material Quantity:  <input id="quantity" name="quantity" type="text" />
+        <br />
+        <input type="submit" />
+
+    </form>
+<%- include("../includes/footer.ejs"); %>

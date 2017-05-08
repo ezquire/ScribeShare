@@ -26,6 +26,14 @@ exports.getAll = function(callback) {
     });
 };
 
+exports.getEmployeesBooked = function(callback) {
+    var query = 'SELECT * FROM employee WHERE employee_id IN (SELECT employee_id FROM booking)';
+
+    connection.query(query, function(err, result) {
+        callback(err, result);
+    });
+};
+
 exports.getById = function(employee_id, callback) {
     var query = 'SELECT * FROM employee WHERE employee_id = ?';
     var queryData = [employee_id];

@@ -4,9 +4,10 @@
 </div>
 
 <a href="/employee/add">Add New Employee</a> <br />
-
 <br />
-
+<a href="/employee/booked">Filter By: Employees who booked an artist</a>
+<br />
+<br />
 <table class="table table-striped">
     <thead>
     <tr><th>Name</th><th>Actions</th></tr>
@@ -21,11 +22,11 @@
                 <input type="hidden" name="employee_id" id="employee_id" value="<%= result[i].employee_id %>" />
                 <input type="submit" value="Delete"/>
             </form>
-
         </td>
     </tr>
     <% } %>
     </tbody>
 
 </table>
+
 <%- include("../includes/footer.ejs"); %>
