@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var stage_dal = require('../model/stage_dal');
-var materials_dal = require('../model/materials_dal');
 
 // View All stages
 router.get('/all', function(req, res) {
@@ -59,8 +58,15 @@ router.get('/insert', function(req, res){
             }
             else {
                 var stage_id = result.insertId
-               stage_dal.insertMaterials(req.query, stage_id, function(err, result) {
-                   res.redirect(302, '/stage/all');
+               stage_dal.insertMaterials(req.query.material_id, req.query.material_type, req.query.quantity, stage_id, function(err, result) {
+                   if(req.query.material_id2 == "" && req.query.material_type2 == "" && req.query.quantity2 == "") {
+                       res.redirect(302, '/stage/all');
+                   }
+                   else {
+                       stage_dal.insertMaterials(req.query.material_id2, req.query.material_type2, req.query.quantity2, stage_id, function (err, result) {
+                           res.redirect(302, '/stage/all');
+                       });
+                   }
                 });
             }
         });

@@ -33,10 +33,10 @@ exports.insert = function(params, callback) {
     });
 };
 
-exports.insertMaterials = function(params, stage_id, callback) {
+exports.insertMaterials = function(material_id, material_type, quantity, stage_id, callback) {
     // insert the address
     var query = 'INSERT INTO materials (material_id, material_type, quantity, stage_id) VALUES (?)';
-    var queryData = [params.material_id, params.material_type, params.quantity, stage_id];
+    var queryData = [material_id, material_type, quantity, stage_id];
     connection.query(query, [queryData], function(err, result) {
         callback(err, result);
     });
