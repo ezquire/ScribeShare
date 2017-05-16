@@ -1,4 +1,20 @@
 <%- include("../includes/header.ejs", {title:"Artist - " + result[0].artist_name}); %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Concert Booking</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/booking/all">Bookings</a></li>
+                <li><a href="/artist/all">Artists</a></li>
+                <li><a href="/employee/all">Employees</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
 
     <div class = "page-header">
         <h1>Artist</h1>
@@ -8,9 +24,12 @@
         <li>Name: <%= result[0].artist_name %></li>
         <li>Email:
             <ul>
-                <% for(var i=0; result.length > i; i++ ) { %>
-                    <li><%= result[i].email %></li>
-                <% } %>
+                <li><%= result[0].email %></li>
+            </ul>
+        </li>
+        <li>Phone:
+            <ul>
+                <li><%= result[0].phone %></li>
             </ul>
         </li>
     </ul>

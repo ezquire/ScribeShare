@@ -1,11 +1,33 @@
 <%- include("../includes/header.ejs", {title:"Bookings - View All"}); %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Concert Booking</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/booking/all">Bookings</a></li>
+                <li><a href="/artist/all">Artists</a></li>
+                <li><a href="/employee/all">Employees</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
 <div class="page-header">
     <h1>All Bookings</h1>
 </div>
 
 <a href="/booking/add">Add New Booking</a> <br />
-
-<br />
+<br/>
+<% if(locals.was_successful) { %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-success col-md-4">
+        Woot! Success! You saved a new booking.%>
+    </div>
+</div>
+<% }%>
 
 <table class="table table-striped">
     <thead>
@@ -21,4 +43,6 @@
     </tbody>
 
 </table>
+
+<a href="/"><< BACK</a>
 <%- include("../includes/footer.ejs"); %>

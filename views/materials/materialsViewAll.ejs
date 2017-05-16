@@ -1,4 +1,20 @@
 <%- include("../includes/header.ejs", {title:"View Stage Information"}); %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Concert Booking</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/booking/all">Bookings</a></li>
+                <li><a href="/artist/all">Artists</a></li>
+                <li><a href="/employee/all">Employees</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
 <div class="page-header">
     <h1>Stage Materials</h1>
 </div>
@@ -21,4 +37,5 @@
     </tbody>
 
 </table>
+<a href="/"> << BACK</a>
 <%- include("../includes/footer.ejs"); %>

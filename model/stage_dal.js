@@ -13,13 +13,13 @@ exports.getAll = function(callback) {
     });
 };
 
-exports.getStageCosts = function(value, callback) {
+exports.getStageCosts = function(value1, value2, callback) {
     var query = 'SELECT s.stage_id, IFNULL(SUM(b.cost), NULL) as cost FROM booking b ' +
-        'LEFT JOIN stage s ON s.stage_id = b.stage_id GROUP BY s.stage_id HAVING SUM(b.cost) > ?';
-    var queryData = [value];
+        'LEFT JOIN stage s ON s.stage_id = b.stage_id GROUP BY s.stage_id HAVING SUM(b.cost) > ? AND SUM(b.cost) < ?';
+    var queryData = [value1, value2];
     console.log(query);
 
-    connection.query(query, [queryData], function(err, result) {
+    connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
 };

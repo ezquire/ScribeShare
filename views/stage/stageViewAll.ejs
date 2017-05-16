@@ -1,7 +1,31 @@
 <%- include("../includes/header.ejs", {title:"View Stage Information"}); %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Concert Booking</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/booking/all">Bookings</a></li>
+                <li><a href="/artist/all">Artists</a></li>
+                <li><a href="/employee/all">Employees</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
 <div class="page-header">
     <h1>Stage Information</h1>
 </div>
+
+<% if(locals.was_successful) { %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-success col-md-4">
+        Stage <%= result.stage_id %> was successfully added. %>
+    </div>
+</div>
+<% }%>
 
     <a href="/stage/add"> Add a New Stage </a>
 
@@ -17,10 +41,6 @@
         <td><%= result[i].stage_id %></td>
         <td><%= result[i].open_time%></td>
         <td><%= result[i].close_time%></td>
-       <td><form action="/stage/delete/" style="display:inline;">
-        <input type="hidden" name="stage_id" id="stage_id" value="<%= result[i].stage_id %>" />
-        <input type="submit" value="Delete"/>
-           </form></td>
     </tr>
     <% } %>
     </tbody>
@@ -28,11 +48,14 @@
 
 <br/>
 <br/>
-Enter a cost (at least 12000 but less than 90000) to see which stages are over that cost.
-<form action="/stage/budget" method="get">
-    Budget: <input id="value" name="value" type="text" />
-    <br />
-    <br />
-    <input type="submit" />
-</form>
+
+Click a button to filter the stages by certain costs:
+<br/>
+<br/>
+<button onclick="event.preventDefault();window.location.href='/stage/cost/?value1=0&value2=15000'">Less than $15000</button>
+<button onclick="event.preventDefault();window.location.href='/stage/cost/?value1=15000&value2=50000'">$15000 - $50000</button>
+<button onclick="event.preventDefault();window.location.href='/stage/cost/?value1=50000&value2=1000000'">Greater than $50000</button>
+<br/>
+<br/>
+<a href="/"><< BACK</a>
 <%- include("../includes/footer.ejs"); %>

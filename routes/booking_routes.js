@@ -58,12 +58,22 @@ router.get('/insert', function(req, res){
     else if(req.query.cost == "") {
         res.send('Please provide a price for the booking.');
     }
+    else if(req.query.phone == "") {
+        res.send('Please provide a contact number for the artist.');
+    }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
         booking_dal.saveArtist(req.query, function(err,result) {
             var artist_id = result.insertId;
             booking_dal.saveBooking(artist_id, req.query.stage_id, req.query.employee_id, req.query.cost, function(err,result) {
-                res.redirect(302, '/booking/all');
+                booking_dal.getAll(function(err, result){
+                    if(err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.render('booking/bookingViewAll', { 'result': result, was_successful:true});
+                    }
+                });
             });
         });
     }

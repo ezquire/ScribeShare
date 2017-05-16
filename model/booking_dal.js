@@ -41,8 +41,8 @@ exports.getBookingInfo = function(callback) {
 
 exports.saveArtist = function(params, callback) {
     // save the artist
-    var query = 'INSERT INTO artist (artist_name, email) VALUES (?)';
-    var queryData = [params.artist_name, params.email];
+    var query = 'INSERT INTO artist (artist_name, email, phone) VALUES (?)';
+    var queryData = [params.artist_name, params.email, params.phone];
     connection.query(query, [queryData], function(err, result) {
         callback(err, result);
     });

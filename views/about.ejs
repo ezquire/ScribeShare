@@ -1,4 +1,21 @@
 <%- include("./includes/header.ejs", {title:"About - Go-Ty Designs"}); %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Concert Booking</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/booking/all">Bookings</a></li>
+                <li><a href="/artist/all">Artists</a></li>
+                <li><a href="/employee/all">Employees</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
 <div class="page-header">
     <h1>About</h1>
 </div>
@@ -11,9 +28,13 @@
 <a href="/images/er_diagram.png"> Entity Relationship Diagram </a>
 <br/>
 <a href="/images/relational_schema.png"> Relational Schema </a>
-     <br/>   <br />
+<br/>
+<a href="/images/functional_dependency.png"> Functional Dependency Diagram </a>
+<br />
+<br />
+
 <div> Company Name: Go-Ty Designs </div>
 <div> Developed by: Tyler Gearing </div>
-
-
+<br/>
+<a href="/"> << BACK</a>
 <%- include("./includes/footer.ejs"); %>

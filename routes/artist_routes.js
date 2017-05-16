@@ -45,6 +45,18 @@ router.get('/add', function(req, res){
     });
 });
 
+router.get('/materials', function(req, res){
+    // passing all the query parameters (req.query) to the insert function instead of each individually
+    artist_dal.getMaterials(req.query, function(err,result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.render('artist/artistMaterials', {'result': result});
+        }
+    });
+});
+
 // Insert a new artist
 router.get('/insert', function(req, res){
     // simple validation
@@ -62,8 +74,14 @@ router.get('/insert', function(req, res){
                 res.send(err);
             }
             else {
-                //poor practice for redirecting the user to a different page, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/artist/all');
+                artist_dal.getAll(function(err, result){
+                    if(err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.render('artist/artistViewAll', { 'result':result, was_successful: true });
+                    }
+                });
             }
         });
     }

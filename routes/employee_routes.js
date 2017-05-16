@@ -81,8 +81,14 @@ router.get('/insert', function(req, res){
                 res.send(err);
             }
             else {
-                //poor practice for redirecting the user to a different page, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/employee/all');
+                employee_dal.getAll(function(err, result){
+                    if(err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.render('employee/employeeViewAll', { 'result':result, was_successful:true });
+                    }
+                });
             }
         });
     }
@@ -103,7 +109,14 @@ router.get('/edit', function(req, res){
 
 router.get('/update', function(req, res) {
     employee_dal.update(req.query, function(err, result){
-       res.redirect(302, '/employee/all');
+        employee_dal.getById(req.query.employee_id, function(err,result) {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                res.render('employee/employeeViewById', {'result': result, was_successful: true});
+            }
+        });
     });
 });
 
