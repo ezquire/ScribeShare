@@ -20,8 +20,8 @@ delimiter ; */
 /* VIEWS */
 /*
 create or replace view booking_view as
-select b.booking_number, a.artist_name, a.artist_id, b.cost from booking b
-left join artist a on a.artist_id = b.artist_id; */
+select b.booking_number, a.artist_name, a.artist_id, b.cost from upload b
+left join browse a on a.artist_id = b.artist_id; */
 
 
 exports.getAll = function(callback) {
@@ -40,8 +40,8 @@ exports.getBookingInfo = function(callback) {
 };
 
 exports.saveArtist = function(params, callback) {
-    // save the artist
-    var query = 'INSERT INTO artist (artist_name, email, phone) VALUES (?)';
+    // save the browse
+    var query = 'INSERT INTO browse (artist_name, email, phone) VALUES (?)';
     var queryData = [params.artist_name, params.email, params.phone];
     connection.query(query, [queryData], function(err, result) {
         callback(err, result);
@@ -50,7 +50,7 @@ exports.saveArtist = function(params, callback) {
 
 exports.saveBooking = function(artist_id, stage_id, employee_id, cost, callback) {
     // insert the address
-    var query = 'INSERT INTO booking (artist_id, stage_id, employee_id, cost) VALUES (?)';
+    var query = 'INSERT INTO upload (artist_id, stage_id, employee_id, cost) VALUES (?)';
     var queryData = [artist_id, stage_id, employee_id, cost];
     connection.query(query, [queryData], function(err, result) {
         callback(err, result);

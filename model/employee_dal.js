@@ -27,7 +27,7 @@ exports.getAll = function(callback) {
 };
 
 exports.getEmployeesBooked = function(callback) {
-    var query = 'SELECT * FROM employee WHERE employee_id IN (SELECT employee_id FROM booking)';
+    var query = 'SELECT * FROM employee WHERE employee_id IN (SELECT employee_id FROM upload)';
 
     connection.query(query, function(err, result) {
         callback(err, result);

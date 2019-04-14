@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var about = require('./routes/about');
-var artist = require('./routes/artist_routes');
-var booking = require('./routes/booking_routes');
+var browse = require('./routes/browse_routes');
+var upload = require('./routes/upload_routes');
 var employee = require('./routes/employee_routes');
 var stage = require('./routes/stage_routes');
 var materials = require('./routes/materials_routes');
@@ -32,8 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/about', about);
-app.use('/artist', artist);
-app.use('/booking', booking);
+app.use('/browse', browse);
+app.use('/upload', upload);
 app.use('/employee', employee);
 app.use('/stage', stage);
 app.use('/materials', materials);
