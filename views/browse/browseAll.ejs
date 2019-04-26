@@ -1,0 +1,41 @@
+<%- include("../includes/header.ejs", {title:"Browse - All Notes"}); %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Notebook</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/upload">Upload</a></li>
+                <li class="active"><a href="/browse">Browse Notes</a></li>
+                <li><a href="/about"> About </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<table class="table table-striped">
+    <thead>
+    <tr><th>Topic</th><th>Title</th><th>Date</th><th>Rating</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>CS 460</td>
+        <td>Swift Optionals</td>
+        <td>04/20/2019</td>
+        <td>
+            <input id="input-3" name="input-3" value="4" class="rating-loading">
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    $(document).on('ready', function(){
+        $('#input-3').rating({displayOnly: true, step: 0.5});
+    });
+</script>
+
+<a href="/"><< BACK</a>
+<%- include("../includes/footer.ejs"); %>

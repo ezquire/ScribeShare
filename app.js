@@ -9,11 +9,6 @@ var index = require('./routes/index');
 var about = require('./routes/about');
 var browse = require('./routes/browse_routes');
 var upload = require('./routes/upload_routes');
-var employee = require('./routes/employee_routes');
-var stage = require('./routes/stage_routes');
-var materials = require('./routes/materials_routes');
-
-
 
 var app = express();
 
@@ -34,10 +29,6 @@ app.use('/', index);
 app.use('/about', about);
 app.use('/browse', browse);
 app.use('/upload', upload);
-app.use('/employee', employee);
-app.use('/stage', stage);
-app.use('/materials', materials);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
