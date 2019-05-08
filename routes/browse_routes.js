@@ -7,6 +7,10 @@ router.get('/', function(req, res) {
 });
 
 // View individual notes (really this should be one page that gets rendered with a back-end)
+router.get('/systems', function(req, res) {
+    res.render('notes/systems');
+});
+
 router.get('/activation', function(req, res) {
     res.render('notes/activation');
 });
@@ -17,6 +21,14 @@ router.get('/compilers', function(req, res) {
 
 router.get('/hashing', function(req, res) {
     res.render('notes/hashing');
+});
+
+router.get('/migration', function(req, res) {
+    res.render('notes/migration');
+});
+
+router.get('/photo', function(req, res) {
+    res.render('notes/photo');
 });
 
 // Thank you for submitting page
