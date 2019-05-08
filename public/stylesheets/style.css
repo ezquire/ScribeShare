@@ -9,6 +9,10 @@ a {
   color: #292929;
 }
 
+object:focus {
+  outline: none;
+}
+
 .row {
   margin-top: 20px;
   margin-bottom: 20px;
