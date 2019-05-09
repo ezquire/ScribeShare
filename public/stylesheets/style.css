@@ -13,6 +13,10 @@ object:focus {
   outline: none;
 }
 
+.current {
+  background: #6fcaf2;
+}
+
 .row {
   margin-top: 20px;
   margin-bottom: 20px;
