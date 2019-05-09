@@ -7,6 +7,10 @@ router.get('/', function(req, res) {
 });
 
 // View individual notes (really this should be one page that gets rendered with a back-end)
+router.get('/systems', function(req, res) {
+    res.render('notes/systems');
+});
+
 router.get('/activation', function(req, res) {
     res.render('notes/activation');
 });

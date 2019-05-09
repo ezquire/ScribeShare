@@ -16,11 +16,20 @@
     </div>
 </nav>
     <div class="page-header">
-        <h1>Issue of Migration</h1>
-        <h2>Uploaded: 2/08/2019</h2>
+        <h1>Photosynthesis</h1>
+        <h2>Uploaded: 1/18/2019</h2>
     </div>
 
-<div><object data="../data/issueofmigration.pdf#view=FitH" type="application/pdf" width="100%" height="600px"></object></div>
+<div><object data="../data/photosynthesis.pdf#view=FitH" type="application/pdf" width="100%" height="600px"></object></div>
+
+<div class="values" style="display:none">
+    <div>
+        <label>Rating</label><input type="text" id="rating" value="0" />
+    </div>
+    <div>
+        <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+    </div>
+</div>
 
 <div style="margin-bottom:10px;">
     <h3>Set Rating:</h3>
@@ -40,6 +49,8 @@
     <br/>
     <br/>
 
+</div>
+
 <form id="myForm" action="/browse/submit">
     <div class="values" style="display:none">
         <div>
@@ -51,7 +62,6 @@
     </div>
     <input class="btn btn-primary" type="submit" onclick="mySubmit()" value="Submit">
 </form>
-</div>
 
 <script>
     function mySubmit() {
