@@ -22,15 +22,6 @@
 
 <div><object data="../data/4602.25.19.pdf#view=FitH" type="application/pdf" width="100%" height="600px"></object></div>
 
-<div class="values" style="display:none">
-    <div>
-        <label>Rating</label><input type="text" id="rating" value="0" />
-    </div>
-    <div>
-        <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
-    </div>
-</div>
-
 <div style="margin-bottom:10px;">
     <h3>Set Rating:</h3>
     <span class="rating_stars rating_0">
@@ -49,8 +40,6 @@
     <br/>
     <br/>
 
-</div>
-
 <form id="myForm" action="/browse/submit">
     <div class="values" style="display:none">
         <div>
@@ -62,6 +51,8 @@
     </div>
     <input class="btn btn-primary" type="submit" onclick="mySubmit()" value="Submit">
 </form>
+
+</div>
 
 <script>
     function mySubmit() {

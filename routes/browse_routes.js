@@ -19,6 +19,30 @@ router.get('/hashing', function(req, res) {
     res.render('notes/hashing');
 });
 
+router.get('/sysequation', function(req, res) {
+    res.render('notes/sysequation');
+});
+
+router.get('/migration', function(req, res) {
+    res.render('notes/migration');
+});
+
+router.get('/photosynthesis', function(req, res) {
+    res.render('notes/photosynthesis');
+});
+
+router.get('/emacs', function(req, res) {
+    res.render('notes/emacs');
+});
+
+router.get('/tectonics', function(req, res) {
+    res.render('notes/tectonics');
+});
+
+router.get('/numerals', function(req, res) {
+    res.render('notes/numerals');
+});
+
 // Thank you for submitting page
 router.get('/submit', function(req, res) {
     res.render('notes/submit');
