@@ -9,6 +9,19 @@ a {
   color: #292929;
 }
 
+object:focus {
+  outline: none;
+}
+
+.current {
+  background: #6fcaf2;
+}
+
+.row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .rating_stars {
   display: inline-block;
   font-size: 20px;

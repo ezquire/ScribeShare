@@ -1,0 +1,23 @@
+<%- include("../includes/header.ejs", {title:"Thank You"}); %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Notebook</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/upload">Upload</a></li>
+                <li><a href="/browse">Browse Notes</a></li>
+                <li><a href="/about"> About </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Thank you for submitting a rating!</h1>
+</div>
+
+<a href="/browse"><< Back to Browse All Notes</a>
+<%- include("../includes/footer.ejs"); %>

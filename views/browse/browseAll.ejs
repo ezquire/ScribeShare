@@ -8,66 +8,280 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/upload">Upload</a></li>
-                <li class="active"><a href="/browse">Browse Notes</a></li>
+                <li class="current"><a href="/browse" style="color:white;">Browse Notes</a></li>
                 <li><a href="/about"> About </a></li>
             </ul>
         </div>
     </div>
 </nav>
 
+<div class="page-header">
+    <h1>Browse All Notes</h1>
+</div>
 
-
-<table class="table table-striped">
-    <thead>
-    <tr><th>Topic</th><th>Title</th><th>Date</th><th>Rating</th></tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>CS 460</td>
-        <td>Swift Optionals</td>
-        <td>04/20/2019</td>
-        <td>
-            <span class="rating_stars rating_0">
-                <span class='s' data-low='1' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-                <span class='s' data-low='2' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-                <span class='s' data-low='3' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-                <span class='s' data-low='4' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-                <span class='s' data-low='5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star"></i></span>
-
-                <span class='r r1' data-rating='1' data-value='1'></span>
-                <span class='r r2' data-rating='2' data-value='2'></span>
-                <span class='r r3' data-rating='3' data-value='3'></span>
-                <span class='r r4' data-rating='4' data-value='4'></span>
-                <span class='r r5' data-rating='5' data-value='5'></span>
-            </span>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-<!-- <div>
-    <input type="checkbox" id="st1" value="1" />
-    <label for="st1"></label>
-    <input type="checkbox" id="st2" value="2" />
-    <label for="st2"></label>
-    <input type="checkbox" id="st3" value="3" />
-    <label for="st3"></label>
-    <input type="checkbox" id="st4" value="4" />
-    <label for="st4"></label>
-    <input type="checkbox" id="st5" value="5" />
-    <label for="st5"></label>
-</div> -->
-
-
-<div class="values">
-    <div>
-        <label>Rating</label><input type="text" id="rating" value="0" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                    <tr class="bg-primary">
+                        <td class="text-center" style="font-weight:bold">Computer Science</td>
+                    </tr>
+                    <tr>
+                        <td class = "text-center">
+                            <br/>
+                            <a href="/browse/activation">
+                            <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                            Activation Records</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class = "text-center">
+                            <span class="rating_stars rating_0">
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">Computer Science</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/compilers">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Compilers</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <span class="rating_stars rating_0">
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">Computer Science</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/hashing">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Hashing </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <span class="rating_stars rating_0">
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div>
-        <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+    <div class="row">
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">Algebra</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/sysequation">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Systems of Equations</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                            <span class="rating_stars rating_0">
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s"><i class="fa fa-star-o"></i></span>
+                                <span class="s"><i class="fa fa-star-o"></i></span>
+                            </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">Ethnic Studies</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/migration">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Issue Of Migration</a>
+                    </td>
+                </tr>
+                    <td class = "text-center">
+                        <span class="rating_stars rating_0">
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">Biology</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/photosynthesis">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Photosynthesis</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <span class="rating_stars rating_0">
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">Computer Science</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/emacs">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Emacs Reference</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                            <span class="rating_stars rating_0">
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s active-high"><i class="fa fa-star"></i></span>
+                                <span class="s"><i class="fa fa-star-o"></i></span>
+                                <span class="s"><i class="fa fa-star-o"></i></span>
+                            </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">History</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/numerals">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Roman Numerals</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <span class="rating_stars rating_0">
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class = "table">
+                <tbody>
+                <tr class="bg-primary">
+                    <td class="text-center" style="font-weight:bold">Life Science</td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <br/>
+                        <a href="/browse/tectonics">
+                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        Plate Tectonics</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "text-center">
+                        <span class="rating_stars rating_0">
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s active-high"><i class="fa fa-star"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                            <span class="s"><i class="fa fa-star-o"></i></span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
+<div style="margin-bottom:10px">
+    <a href="/"><< BACK</a>
+</div>
 
-<a href="/"><< BACK</a>
-<%- include("../includes/footer.ejs"); %>
+
+<%- include("../includes/footer.ejs"); %> 

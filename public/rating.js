@@ -3,8 +3,8 @@ jQuery(document).ready(function($) {
         .hover(
             function() {
                 // get hovered value
-                var rating = $(this).data("rating");
-                var value = $(this).data("value");
+                let rating = $(this).data("rating");
+                let value = $(this).data("value");
                 $(this)
                     .parent()
                     .attr("class", "")
@@ -14,8 +14,8 @@ jQuery(document).ready(function($) {
             },
             function() {
                 // get hidden field value
-                var rating = $("#rating").val();
-                var value = $("#rating_val").val();
+                let rating = $("#rating").val();
+                let value = $("#rating_val").val();
                 $(this)
                     .parent()
                     .attr("class", "")
@@ -26,19 +26,19 @@ jQuery(document).ready(function($) {
         )
         .click(function() {
             // Set hidden field value
-            var value = $(this).data("value");
+            let value = $(this).data("value");
             $("#rating_val").val(value);
 
-            var rating = $(this).data("rating");
+            let rating = $(this).data("rating");
             $("#rating").val(rating);
 
             highlight_star(value);
         });
 
-    var highlight_star = function(rating) {
+    let highlight_star = function(rating) {
         $(".rating_stars span.s").each(function() {
-            var low = $(this).data("low");
-            var high = $(this).data("high");
+            let low = $(this).data("low");
+            let high = $(this).data("high");
             $(this)
                 .removeClass("active-high")
                 .removeClass("active-low");
