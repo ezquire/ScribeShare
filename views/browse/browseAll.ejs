@@ -1,19 +1,4 @@
 <%- include("../includes/header.ejs", {title:"Browse - All Notes"}); %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Notebook</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/upload">Upload</a></li>
-                <li class="current"><a href="/browse" style="color:white;">Browse Notes</a></li>
-                <li><a href="/about"> About </a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 <div class="page-header">
     <h1>Browse All Notes</h1>
@@ -25,13 +10,14 @@
             <table class = "table">
                 <tbody>
                     <tr class="bg-primary">
-                        <td class="text-center" style="font-weight:bold">Computer Science</td>
+                        <td class="text-center pdf-title" style="font-weight:bold">Computer Science</td>
                     </tr>
                     <tr>
                         <td class = "text-center">
                             <br/>
                             <a href="/browse/activation">
-                            <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+
+                            <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                             Activation Records</a>
                         </td>
                     </tr>
@@ -53,13 +39,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">Computer Science</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">Computer Science</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/compilers">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Compilers</a>
                     </td>
                 </tr>
@@ -81,13 +67,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">Computer Science</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">Computer Science</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/hashing">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Hashing </a>
                     </td>
                 </tr>
@@ -111,13 +97,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">Algebra</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">Algebra</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/sysequation">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Systems of Equations</a>
                     </td>
                 </tr>
@@ -139,13 +125,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">Ethnic Studies</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">Ethnic Studies</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/migration">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Issue Of Migration</a>
                     </td>
                 </tr>
@@ -166,13 +152,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">Biology</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">Biology</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/photosynthesis">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Photosynthesis</a>
                     </td>
                 </tr>
@@ -196,13 +182,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">Computer Science</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">Computer Science</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/emacs">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Emacs Reference</a>
                     </td>
                 </tr>
@@ -224,13 +210,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">History</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">History</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/numerals">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Roman Numerals</a>
                     </td>
                 </tr>
@@ -252,13 +238,13 @@
             <table class = "table">
                 <tbody>
                 <tr class="bg-primary">
-                    <td class="text-center" style="font-weight:bold">Life Science</td>
+                    <td class="text-center pdf-title" style="font-weight:bold">Life Science</td>
                 </tr>
                 <tr>
                     <td class = "text-center">
                         <br/>
                         <a href="/browse/tectonics">
-                        <p><i class="fa fa-file-pdf-o" style="font-size:48px; color:red"></i></p>
+                        <p><i class="fa fa-file-pdf" style="font-size:48px; color:red"></i></p>
                         Plate Tectonics</a>
                     </td>
                 </tr>
@@ -282,6 +268,5 @@
 <div style="margin-bottom:10px">
     <a href="/"><< BACK</a>
 </div>
-
 
 <%- include("../includes/footer.ejs"); %> 
