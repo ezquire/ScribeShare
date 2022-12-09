@@ -12,7 +12,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "^4.1.1",
     "ejs": "~2.5.2",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jQuery": "^1.7.4",
     "jquery": "^3.4.0",
     "less-middleware": "^3.1.0",
